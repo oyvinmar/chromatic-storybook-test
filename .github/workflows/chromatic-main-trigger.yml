@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    tags-ignore:
-      - "**"
     paths:
       - "src/stories/**"
 
@@ -13,5 +11,11 @@ jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Check for merge commit
+        id: check
+        run: echo "::set-output name=isMerge::$(git log --merges -1 --pretty=format:'%H')"
       - name: Print Hello World
         run: echo Hello, world!
+        if: steps.check.outputs.isMerge == github.sha
