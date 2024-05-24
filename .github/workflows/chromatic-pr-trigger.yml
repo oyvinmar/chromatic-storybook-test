@@ -10,3 +10,4 @@ jobs:
   trigger-chromatic:
     name: Run visual tests
     uses: ./.github/workflows/chromatic.yml
+    secrets: inherit
