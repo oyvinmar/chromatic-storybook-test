@@ -9,7 +9,7 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
-      - "src/stories/**"
+      - "packages/**"
 
 jobs:
   trigger-chromatic:
