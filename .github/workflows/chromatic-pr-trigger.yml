@@ -1,9 +1,8 @@
-name: "Chromatic Main Trigger"
+name: "Chromatic PR Trigger"
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [opened, reopened, synchronize]
     paths:
       - "src/stories/**"
 
